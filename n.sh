@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Set your Ngrok authtoken here
+NGROK_TOKEN="2yMCukUmuN2VdA6ZsOR5NrZJJSu_6C8UNqAT2QDxSqjiuLM1U"
+
+echo "[+] Installing ngrok..."
+# Download and install ngrok if not found
+if ! command -v ngrok &> /dev/null; then
+  wget -q https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+  unzip ngrok-stable-linux-amd64.zip
+  sudo mv ngrok /usr/local/bin
+  rm ngrok-stable-linux-amd64.zip
+else
+  echo "[+] ngrok is already installed."
+fi
+
+echo "[+] Setting authtoken..."
+ngrok config add-authtoken $NGROK_TOKEN
+

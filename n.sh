@@ -17,3 +17,6 @@ fi
 echo "[+] Setting authtoken..."
 ngrok config add-authtoken $NGROK_TOKEN
 
+echo "[+] Starting ngrok tunnel on port 22..."
+# Run in background
+ngrok tcp 22

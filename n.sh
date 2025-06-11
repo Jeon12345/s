@@ -1,23 +1,21 @@
 #!/bin/bash
 
-# === CONFIG ===
+# Set your Ngrok authtoken here
 NGROK_TOKEN="2yMCukUmuN2VdA6ZsOR5NrZJJSu_6C8UNqAT2QDxSqjiuLM1U"
-NGROK_PORT=22
-NGROK_BIN="./ngrok"
 
-# === DOWNLOAD NGROK ===
-if [ ! -f "$NGROK_BIN" ]; then
-    echo "[*] Downloading ngrok..."
-    wget -q https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz -O ngrok.zip
-    unzip -o ngrok.zip
-    chmod +x ngrok
-    rm ngrok.zip
+echo "[+] Installing ngrok..."
+# Download and install ngrok if not found
+if ! command -v ngrok &> /dev/null; then
+  wget -q https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+  unzip ngrok-v3-stable-linux-amd64.tgz
+  sudo mv ngrok /usr/local/bin
+  rm ngrok-v3-stable-linux-amd64.tgz
+else
+  echo "[+] ngrok is already installed."
 fi
 
-# === SET AUTHTOKEN ===
-echo "[*] Configuring ngrok with authtoken..."
-$NGROK_BIN config add-authtoken "$NGROK_TOKEN"
+echo "[+] Setting authtoken..."
+ngrok config add-authtoken $NGROK_TOKEN
 
-# === START TUNNEL ===
-echo "[*] Starting ngrok tunnel on TCP port $NGROK_PORT..."
-$NGROK_BIN tcp $NGROK_PORT
+echo "[+] Starting ngrok tunnel on port 22..."
+# Run in background

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set your Ngrok authtoken here
-NGROK_TOKEN="2yPBuo5TXW1Og6HviOX8hyOVzwt_6czRBaMAtFbdqB25Z7tfp"
+NGROK_TOKEN="1pEQhvizMarEn9dwdgrTw6imo07_3dAuarJwJNztGS4BqbueD"
 
 echo "[+] Installing ngrok..."
 

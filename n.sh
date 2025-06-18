@@ -2,7 +2,7 @@
 
 # Set your Ngrok authtoken here
 # NGROK_TOKEN="1pEQhvizMarEn9dwdgrTw6imo07_3dAuarJwJNztGS4BqbueD"
-NGROK_TOKEN="2EIiWgE6kbeXb2b3S88gJoeatzG_7KFcUJPNbwK7CHwHoucmY"
+NGROK_TOKEN="2pHsZScewzWnFPxgNOvwnCtfA9R_2J42SPU3YQJhacrYbj4hM"
 
 echo "[+] Installing ngrok..."
 
